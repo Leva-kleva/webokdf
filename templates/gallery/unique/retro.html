@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+    Ретроспектива
+{% endblock title %}
+{% block content %}
+		<div class="heading">
+			<h1>{{ retro.name }}</h1>
+		</div>
+
+            {% for image in retro.imgs.all %}
+                <div class="img_retro_{{ image.class_style }}"><img src="{{ image.img.url }}"></div>
+
+                <div class="retro_{{ image.class_style }}">
+                    {{ image.description | safe }}
+                </div>
+
+                <hr class="space">
+            {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load posts_tags %}
+
+{% block title %}
+    ОКДФ
+{% endblock title %}
+
+{% block content %}
+        {% if section_list %}
+		<div class="subheading">
+
+			<h1>{{ section_list.0.section.name }} /</h1>
+
+			<div class="submenu">
+                 {% for section in section_list %}
+                            {% if section.link %}
+                                {% if section.name != 'NULL' %}
+                                    <a href="{{ section.link }}">
+                                       {{ section.name }}
+                                    </a>
+                                {% endif %}
+                            {% else %}
+                                {% if section.name != 'NULL' %}
+                                    <a href="{{ section.get_absolute_url }}">
+                                        {{ section.name }}
+                                    </a>
+                                {% endif %}
+                            {% endif %}
+                 {% endfor %}
+            </div>
+		</div>
+        {% endif %}
+		<hr>
+<div class="news_filter">
+            {% get_posts  request %}
+</div>
+
+        <script src="{% static 'js/filter.js' %}"></script>
+<hr class="space">
+{% endblock content %}

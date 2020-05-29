@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Шествие
+{% endblock title %}
+{% block content %}
+<p>Шествие</p>
+<img src="{% static  'img/aaa.jpg' %}">
+<div class="form_c">
+	<form action="{% url 'add_sticker' %}" method="post">
+		{% csrf_token %}
+		<div class="row_form">
+			<div class="col_35_form">
+				<img class="form_img" src="{% static 'img/kotek.png' %}" alt="" >
+			</div>
+			<div class="col_65_form">
+			<label for="description">Стикер на памятник Ломоносова</label>
+			<textarea id="description" name="description" placeholder="Write something..">{{ form.description }}</textarea>
+			<input type="submit" value="Приклеить">
+			</div>
+		</div>
+</form>
+</div>
+
+<p>Последние стикеры:</p>
+{% for sticker in stickers %}
+	<div class="heading"><p>{{ sticker.description }}</p></div>
+{% endfor %}
+<a href="all_stickers">Смотреть все стикеры</a>
+{% endblock content %}
+

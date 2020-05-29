@@ -1,0 +1,42 @@
+{% load sections_tags %}
+{% load static %}
+{% load cache %}
+<header>
+{% cache 150000 subsections %}
+	<div class="logow">
+		<a href="/"><img src="{% static 'img/logo_b.svg' %}"></a>
+	</div>
+	<!-- строка поиска -->
+	<div class="headmenu">
+		{% get_sections as sections %}
+        {% for section in sections %}
+			{% if section.link %}
+				{% if section.name != 'NULL' %}
+					<a href="{{ section.link }}"><span>{{ section.name }}</span></a>
+				{% endif %}
+			{% else %}
+				{% if section.name != 'NULL' %}
+					<a href="{{ section.get_absolute_url }}"><span>{{ section.name }}</span></a>
+				{% endif %}
+			{% endif %}
+        {% endfor %}
+	</div>
+
+			<span class="burger" onclick="openNav()">&#9776;</span>
+
+			<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        {% for section in sections %}
+			{% if section.link %}
+				{% if section.name != 'NULL' %}
+					<a href="{{ section.link }}">{{ section.name }}</a>
+				{% endif %}
+			{% else %}
+				{% if section.name != 'NULL' %}
+					<a href="{{ section.get_absolute_url }}">{{ section.name }}</a>
+				{% endif %}
+			{% endif %}
+        {% endfor %}
+			</div>
+{% endcache %}
+</header>

@@ -1,0 +1,8 @@
+<h1>Все объявления:</h1>
+			{% for fontan in fontans %}
+				<div class="sticker {{ fontan.color }}">
+				<h2>{{ fontan.name }}</h2>
+				<p>{{ fontan.description }}</p>
+				<a href="{{ fontan.link }}" target="_blank">перейти по ссылке</a>
+				</div>
+			{% endfor %}

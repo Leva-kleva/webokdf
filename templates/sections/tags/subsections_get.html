@@ -1,0 +1,11 @@
+{% load cache %}
+<input type="checkbox" id="drop-2">
+{% cache 150000 subsections %}
+<ul>
+    {% for subsection in subsections %}
+    {% if subsection.name != 'NULL' %}
+        <li><a href="{{ subsection.get_absolute_url }}">{{ subsection.name }}</a></li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endcache %}

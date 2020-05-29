@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load cache %}
+{% block title %}
+    Стикеры
+{% endblock title %}
+{% block content %}
+<p>Стикеры:</p>
+{% cache 120 stickers %}
+{% for sticker in stickers %}
+	<div class="heading"><p>{{ sticker.description }}</p></div>
+{% endfor %}
+{% endcache %}
+{% endblock content %}

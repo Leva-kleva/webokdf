@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+
+<html lang="ru">
+
+	<head>
+		{% load static %}
+		<meta charset=UTF-8>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{% block title %} {% endblock title %}</title>
+		<link rel="shortcut icon" href="{% static 'img/icon.png' %}" sizes="32x32" type="image/png">
+		{% block refresh %} {% endblock refresh %}
+		<!--[if lt IE 9]><script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script><![endif]-->
+		<link href="{% static 'css/main.css' %}?v=1.4" rel="stylesheet" />
+		<link href="{% static 'css/color.css' %}?v=1.3" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+		<script src="{% static 'js/menu.js' %}?v=1.3"></script>
+		<!-- Yandex.Metrika counter -->
+		<script type="text/javascript" >
+		   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+		   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+		   ym(62786248, "init", {
+				clickmap:true,
+				trackLinks:true,
+				accurateTrackBounce:true
+		   });
+		</script>
+		<noscript><div><img src="https://mc.yandex.ru/watch/62786248" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+
+	</head>
+	<body>
+
+	{% include 'include/header.html' %}
+	{% block content %}
+
+	{% endblock content %}
+	{% include 'include/footer.html' %}
+	</body>
+</html>

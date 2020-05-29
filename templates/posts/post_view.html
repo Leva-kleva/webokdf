@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block refresh %}
+	{% if post.link != "" %}
+		<meta http-equiv="refresh" content="0; url={{ post.link }}">
+	{% endif %}
+{% endblock refresh %}
+{% block title %}
+    {{ post.name }}
+{% endblock title %}
+{% block content %}
+		<div class="article_info">
+			<span class="article_category">{{ post.tip }}</span>
+			<span class="article_date">{{ post.datee }}</span>
+			{% if post.source %}
+				<a href="{{ post.source }}"><span class="article_source">Источник: {{ post.source_name}} </span></a>
+			{% endif %}
+		</div>
+
+		<div class="heading">
+			<h1>{{ post.name }}</h1>
+		</div>
+
+		<div class="articles">
+			{% if post.image %}
+                <img class="articles_img" src="{{ post.image.url }}">
+            {% endif %}
+			<hr class="br">
+			<p>
+				{{ post.description | safe }}
+			</p>
+
+
+		</div>
+
+			{% if post.gallery %}
+						<div class="row_photo">
+							{% for image in post.gallery.imgs.all %}
+								<img class="image" src="{{ image.img.url }}">
+							{% endfor %}
+						</div>
+
+
+
+						<script src="{% static 'js/album.js' %}"></script>
+            {% endif %}
+<hr class="br">
+<div class="articles">
+			{% if post.author %}
+				<p class="author"><b>Автор: <a href="{{ post.author.get_absolute_url }}"> {{ post.author.name }} </a></b></p>
+            {% endif %}
+
+</div>
+<hr class="br">
+{% endblock content %}

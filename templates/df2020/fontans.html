@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+
+	<head>
+		<meta charset=UTF-8>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Шествие</title>
+		<!--[if lt IE 9]><script src=http://html5shiv.googlecode.com/svn/trunk/html5.js></script><![endif]-->
+		<link href="css/main.css" rel="stylesheet" />
+		<link href="css/color.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+		<script src="js/menu.js"></script>
+	</head>
+
+	<body>
+
+		<div class="heading">
+			<h1>Встреча у фонтанов</h1>
+		</div>
+
+
+		<div class="articles">
+
+			<img class="articles_img" src="files/img/img_3.png">
+
+			<hr class="br">
+
+			<p>
+			Какой-то текст про хлебную жабу на фонтанах, и то как она набухает!
+			</p>
+
+		</div>
+
+				<!-- форма отправки заявки -->
+		<div class="form_c">
+			<form action="{% url 'add_fontan' %}" method="post">
+                {% csrf_token %}
+			<div class="row_form">
+				<label for="subject">Призыв одногрупников в чат</label>
+				<textarea id="name" name="name" placeholder="Имя...">{{ from.name }}</textarea>
+				<textarea id="subject" name="description" placeholder="Напиши где ты хочешь собрать одногрупников ...">{{ form.description }}</textarea>
+				<textarea id="url" name="link" placeholder="Ссылка...">{{ form.link }}</textarea>
+				<input type="submit" value="Отправить">
+			</div>
+			</form>
+		</div>
+
+		<div class="lent_sticker">
+
+			<h1>Последнее:</h1>
+			{% for fontan in fontans %}
+                <div class="sticker red">
+                <h2>{{ fontan.name }}</h2>
+                <p> {{ fontan.description }} </p>
+                <a href="{{ fontan.link }}" target="_blank">перейти на встречу</a>
+                </div>
+            {% endfor %}
+		</div>
+
+	</body>
+
+</html>

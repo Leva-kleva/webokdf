@@ -1,0 +1,265 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    ДФ 2020
+{% endblock title %}
+{% block content %}
+	<div class="heading">
+			<h1>День Физика 2020</h1>
+		</div>
+		<div class="articles">
+			<p>
+		Привет!
+<br>
+<br>
+Мы — ОКДФ, и мы очень рады всех видеть :)
+<br>
+Для нас ДФ — это особенный день, и мы очень старались, чтобы даже в этом году каждый смог встретиться со своими друзьями и однокурсниками у фонтанов на площади (пускай и виртуальной), посмотреть любимые мероприятия и получить футболку «Осторожно физик!».
+<br>
+<br>
+<br>
+<b>С праздником, физики!</b>
+<br>
+И добро пожаловать на ДФ!
+			</p>
+
+		</div>
+
+		<hr class="br">
+
+<!-- -->
+	{% for content in content_list %}
+	{% if content.url == "stream" %}
+		<div class="timing">
+		<!-- картинки с надписью -->
+
+			<div class="timing_2_image">
+			<a href="{{ content.get_absolute_url }}">
+			<img src="{{ content.image_preview.url }}">
+			</a>
+			</div>
+
+
+			<div class="timing_2_info"> {{ content.small_description | safe }} </div>
+		</div>
+
+		<hr class="br">
+
+	{% elif content.url == "minecraft" %}
+
+		<!-- карта мероприятий -->
+
+
+		<div class="map">
+			{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container_100">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe }}
+				</p>
+				</div>
+			</div>
+			</a>
+
+		</div>
+
+		<hr class="br">
+	{% elif content.order == 2 %}
+		<div class="map">
+			{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe }}
+				</p>
+				</div>
+			</div>
+			</a>
+	{% elif content.order == 3 %}
+			{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe  }}
+				</p>
+				</div>
+			</div>
+			</a>
+	{% elif content.order == 4 %}
+						{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe }}
+				</p>
+				</div>
+			</div>
+			</a>
+
+		</div>
+
+		<hr class="br">
+{% elif content.order == 5 %}
+		<div class="map">
+			{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe }}
+				</p>
+				</div>
+			</div>
+			</a>
+{% elif content.order == 6 %}
+						{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe }}
+				</p>
+				</div>
+			</div>
+			</a>
+{% elif content.order == 7 %}
+			{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe }}
+				</p>
+				</div>
+			</div>
+			</a>
+
+		</div>
+
+		<hr class="br">
+
+{% elif content.order == 8 %}
+		<div class="map">
+			{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe }}
+				</p>
+				</div>
+			</div>
+			</a>
+{% elif content.order == 9 %}
+						{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe }}
+				</p>
+				</div>
+			</div>
+			</a>
+{% elif content.order == 10 %}
+			{% if content.link %}
+				<a href="{{ content.link }}">
+			{% else %}
+				<a href="{{ content.get_absolute_url }}">
+			{% endif %}
+			<div class="map_container">
+				<img src="{{ content.image_preview.url }}" alt="">
+				<div class="map_new_txt">
+				<h2>{{ content.name }}</h2>
+				<p>
+					{{ content.small_description | safe }}
+				</p>
+				</div>
+			</div>
+			</a>
+
+		</div>
+
+		<hr class="br">
+
+{% endif %}
+{% endfor %}
+		</div>
+
+		<hr class="br">
+<!--
+<div class="heading"><a href="/df2020/stream"><p>Трансляция</p></a></div>
+<div class="heading"><a href="/df2020/parade"><p>Шествие</p></a></div>
+<div class="heading"><a href="/df2020/activities"><p>Акстивности</p></a></div>
+<div class="heading"><a href="/df2020/contests"><p>Конкурсы</p></a></div>
+<div class="heading"><a href="/df2020/retro"><p>Ретроспектива</p></a></div>
+-->
+		<!-- лента инстаграма  -->
+		<div class="heading">
+			<h1>#дфнеболей</h1>
+		</div>
+
+		<div class="articles">
+
+			<p>
+			Вау! Кажется, фото с хэштегом <b>#дфнеболей</b> попадают из инстаграма* прямо сюда! Выкладывай фотографии с тем, как ты проводишь Онлайн ДФ, и мы покажем самые интересные из них в прямом эфире.
+</p>
+
+			<span class="signature">*ваш аккаунт должен быть открытым</span>
+
+		</div>
+
+        <div class="insta">
+            <iframe src="https://yolsha.tech/inwidget/index.php?adaptive=true&inline=3&view=21&toolbar=false" data-inwidget scrolling="yes" frameborder="no" style="border:none;width:100%;height:1000px;overflow:hidden;"></iframe>
+        </div>
+<hr class="br">
+{% endblock content %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ gallery.name }}
+{% endblock title %}
+{% load static %}
+{% block content %}
+		<div class="heading">
+			<h1>{{ gallery.name }}</h1>
+		</div>
+
+		<div class="row_photo">
+            {% for image in gallery.imgs.all %}
+			    <img class="image" src="{{ image.img.url }}">
+			{% endfor %}
+		</div>
+
+		<hr class="br">
+
+		<script src="{% static 'js/album.js' %}"></script>
+
+{% endblock content %}

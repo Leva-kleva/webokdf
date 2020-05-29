@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load cache %}
+
+{% block title %}
+    ОКДФ
+{% endblock title %}
+{% block content %}
+        <div class="news_filter">
+			<div class="container">
+                {% cache 3600 gallery_list %}
+                {% for gallery in gallery_list %}
+                        <div class="filterDiv articles">
+                        <a href="{{ gallery.get_absolute_url }}">
+                        <div class="news">
+                            {% if gallery.image %}
+                                <img class="news_img" src="{{ gallery.image.url }}" alt="" >
+                            {% endif %}
+                            <div class="news_info">
+                            <span class="blue active news_category">Альбом</span>
+                            <!-- <span class="news_date">21.20.2020</span> -->
+                            <h1>{{ gallery.name }}</h1>
+                                {% if gallery.small_description %}
+                                    <p>{{ gallery.small_description | safe }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        </a>
+                        </div>
+                {% endfor %}
+                {% endcache %}
+			</div>
+        </div>
+        <script src="{% static 'js/filter.js' %}"></script>
+{% endblock content %}
+
